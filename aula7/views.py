@@ -30,6 +30,6 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("login"))
 
-@permission_required('view_carrinho')
+@permission_required('aula5.view_carrinho')
 def permission_view(request):
     return HttpResponse("view com permissao")
