@@ -3,16 +3,17 @@ from .forms import UserLoginForm
 from django.contrib.auth import login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required, permission_required
+from django.urls import reverse
 
 def index(request):
-    next = request.GET.get("next", "/aula7")
+    next = request.GET.get("next", reverse("login"))
     form = UserLoginForm()
     if request.method == "POST":
         form = UserLoginForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            next = request.POST.get("next", "/aula7")
+            next = request.POST.get("next", reverse("login"))
             return HttpResponseRedirect(next)
 
     context = {
@@ -27,7 +28,7 @@ def restrita(request):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('/aula7')
+    return HttpResponseRedirect(reverse("login"))
 
 @permission_required('view_carrinho')
 def permission_view(request):
