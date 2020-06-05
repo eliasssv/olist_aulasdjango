@@ -2,7 +2,7 @@ asgiref==3.2.3
 backcall==0.1.0
 colorama==0.4.3
 decorator==4.4.1
-Django==3.0.3
+Django==3.0.7
 -e git+https://github.com/jazzband/django-debug-toolbar.git@bad48b28e74618c2d21453202b0ed59cdb9fd0b3#egg=django_debug_toolbar
 ipdb==0.12.3
 ipython==7.12.0
